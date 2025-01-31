@@ -1,0 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class TerritoryCount : MonoBehaviour
+{
+    GameObject PanelManager;   //PanelManagerのGameObjectを入れるところ
+    PanelManager script;       //PanelManegerのScriptを取得する所
+    public Text BlackTerritoryText;     //黒の方の陣地を取得
+    // Start is called before the first frame update
+    void Start()
+    {
+        PanelManager = GameObject.Find ("PanelManager"); //MainのPanalManagerGameObjectを見つける
+        script = PanelManager.GetComponent<PanelManager>(); //PanelManager(GameObjct)の中のPanelManager(Script)を取得※わかりずらくてごめんね
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        int BlackTerritory = script.blackPanelCount; //PanelManagerの変数を新たに変数に宣言する
+        BlackTerritoryText.text = string.Format("{0}" , BlackTerritory);//新たに宣言した変数をTextに表示する！
+    }
+}
